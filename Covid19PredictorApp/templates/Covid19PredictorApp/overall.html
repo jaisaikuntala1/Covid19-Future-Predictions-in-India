@@ -1,0 +1,84 @@
+{% extends 'Covid19PredictorApp/base.html' %}
+{% block content %}
+<div id="container">
+{% for state in states%}
+
+    {% if state.name == 'India' %}
+
+
+        <div style="padding-left: 200px;" >
+            <div class="card" style="max-width: 400px;">
+                <div class="card-image">
+                  <img src="{{state.image}}">
+
+                </div>
+                <div class="card-content">
+                  <p class="flow-text" style="text-align: center;">{{state.name}}</p>
+                </div>
+
+
+                <div class="card-action" style="text-align: center;">
+                  <div class="btn-group">
+                    <a href="../see_prediction/?state_name={{state.name}}">See Predictions</a>
+                    <a href="../cumulative/?state_name={{state.name}}">Cumulative Plot</a>
+                    <a href="../daywise/?state_name={{state.name}}">Day-wise Plot</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div style="padding-left: 200px;" >
+
+
+              <div id="accordion" >
+                <div class="card" style="width: 200px">
+                  <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                      <strong>Today's Date</strong>
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                      <strong>{{ current_date_val }}</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="card" style="width: 200px">
+                  <div class="card-header">
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                    <strong>Predicted Deadline</strong>
+                  </a>
+                  </div>
+                  <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                      <strong>{{ deadline }}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+    {% endif %}
+
+
+
+{% endfor %}
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

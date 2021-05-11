@@ -1,0 +1,61 @@
+{% extends 'Covid19PredictorApp/base.html' %}
+{% block content %}
+
+    <div style="width: 100%; text-align: center;">
+        <h3>State Wise Data</h3>
+    </div>
+<div id="container">
+{% for state in states%}
+
+   {% if state.name == 'India' %}
+
+    {% else %}
+        <div style="margin-left: 20px;">
+        <div class="card" style="max-width: 400px;">
+            <div class="card-image">
+              <img src="{{state.image}}">
+
+            </div>
+            <div class="card-content">
+              <p class="flow-text" style="text-align: center;">{{state.name}}</p>
+            </div>
+
+
+            <div class="card-action" style="text-align: center;">
+              <div class="btn-group">
+                <a href="see_prediction/?state_name={{state.name}}" >See Predictions</a>
+                <a href="cumulative/?state_name={{state.name}}" >Cumulative Plot</a>
+                <a href="daywise/?state_name={{state.name}}">Day-wise Plot</a>
+              </div>
+            </div>
+
+
+
+
+          </div>
+    </div>
+
+
+    {% endif %}
+
+{% endfor %}
+</div>
+
+
+    
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
